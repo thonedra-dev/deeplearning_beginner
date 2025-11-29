@@ -8,7 +8,7 @@ arr2 = np.array([[1,2,3],
 # ONE-D slicing and TWO-D slicing.
 
 print(arr1[1:7])
-print(arr2[0:3, 0:3])  
+print(arr2[0:, 0:3])  
 
 
 
