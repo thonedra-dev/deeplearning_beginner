@@ -7,13 +7,14 @@ arr = np.array([
 ])
 
 # 1️⃣ Print the entire first sheet
-print("First sheet:\n", arr[0,0:])  #In here, you can just use [0].
+print("First sheet:\n", arr[0,0:]) 
 
 # 2️⃣ Print the second row of the second sheet
-print("Second row of second sheet:\n", arr[1,1,0:])
+print("Second row of second sheet:\n", arr[1,1])
 
 # 3️⃣ Print the last column of all sheets
 print("Last column of all sheets:\n", arr[0:,0:,-1])
 
 # 4️⃣ Print rows 1 and 3 of first sheet, columns 1 and 3
 print("Rows 0 & 2, Columns 1 & 3 of first sheet:\n", arr[0,[0,2]][:,[1,3]])
+
