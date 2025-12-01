@@ -1,8 +1,7 @@
 import numpy as np
 
-# -----------------------
+
 # 1. INPUT MATRIX (4 samples, 3 features)
-# -----------------------
 X = np.array([
     [1.0, 2.0, 3.0],   # sample 1
     [4.0, 5.0, 6.0],   # sample 2
@@ -13,9 +12,8 @@ X = np.array([
 print("X shape:", X.shape)
 print("X:\n", X, "\n")
 
-# -----------------------
+
 # 2. WEIGHTS (5 neurons, 3 inputs)
-# -----------------------
 W = np.array([
     [0.1, -0.2,  0.3],
     [0.4,  0.5, -0.6],
@@ -24,14 +22,12 @@ W = np.array([
     [-0.3, 0.2, 0.1]
 ])
 
-# -----------------------
+
 # 3. BIAS (5 neurons, 1 each)
-# -----------------------
 b = np.array([[1], [2], [3], [4], [5]])
 
-# -----------------------
+
 # 4. Z = np.dot(W, X) + b
-# -----------------------
 Z = np.dot(W, X) + b   # shape = (5,4)
 print("Z = np.dot(W, X) + b:\n", Z, "\n")
 
