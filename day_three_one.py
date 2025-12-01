@@ -1,9 +1,9 @@
 import numpy as np
 arr = np.array([
     [[1, 2, 3],
-     [4, 5, 6]],
+     [7, 5, 6]],
     
-    [[7, 8, 9],
+    [[7, 10, 9],
      [10, 11, 12]]
 ])
 
@@ -23,3 +23,7 @@ print(np.sum(arr, axis=0)) # This will add every rows and cols from the differen
 # So, rows in a sheet
 # So, cols in a row
 # So, rows and cols of a sheet.
+
+print(np.max(arr, axis=1)) # This will give the maximum row from each sheet.
+print(np.max(arr, axis=2)) # This will give the maximum col values frome each row from each sheet.
+print(np.max(arr, axis=0)) # This will simply give the maximum sheet with largest values.
