@@ -21,3 +21,28 @@ X_test = X_train.reshape(-1, 28, 28, 1)
 from tensorflow.keras.utils import to_categorical
 y_train = to_categorical(y_train, 10)
 y_test = to_categorical(y_test, 10)
+
+from tensorflow.keras import models, layers
+model = models.Sequential()
+
+model.add(layers.Conv2D(32, (3,3), activation='relu', input_shape=(28,28,1)))
+model.add(layers.MaxPooling2D((2,2)))
+model.add(layers.Flatten())
+model.add(layers.Dense(10, activation='softmax'))
+model.summary()
+
+# 7️⃣ Compile the model
+model.compile(
+    optimizer='adam',
+    loss='categorical_crossentropy',
+    metrics=['accuracy']
+)
+
+# 8️⃣ Fit the model
+history = model.fit(
+    X_train, y_train,
+    epochs=10,
+    batch_size=32,
+    validation_split=0.1,
+    verbose=1
+)
