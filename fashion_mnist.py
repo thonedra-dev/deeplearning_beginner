@@ -69,3 +69,18 @@ true_labels = np.argmax(y_test, axis=1)
 # Print first 10 results
 print("First 10 True Labels:     ", true_labels[:10])
 print("First 10 Predicted Labels:", pred_labels[:10])
+
+
+import matplotlib.pyplot as plt
+
+# Map integer labels to fashion item names
+fashion_labels = ["T-shirt/top", "Trouser", "Pullover", "Dress", "Coat",
+                  "Sandal", "Shirt", "Sneaker", "Bag", "Ankle boot"]
+
+fig, axes = plt.subplots(2, 5, figsize=(12,5))
+for i, ax in enumerate(axes.flat):
+    ax.imshow(X_test[i].reshape(28,28), cmap='gray')
+    ax.set_title(f"Pred: {fashion_labels[pred_labels[i]]}\nTrue: {fashion_labels[true_labels[i]]}")
+    ax.axis('off')
+plt.tight_layout()
+plt.show()
