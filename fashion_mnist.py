@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 from tensorflow.keras.datasets import fashion_mnist
 from tensorflow.keras.utils import to_categorical
 from tensorflow.keras import models, layers
+import matplotlib.pyplot as plt
 
 # 2️⃣ Load Fashion-MNIST
 (X_train, y_train), (X_test, y_test) = fashion_mnist.load_data()
@@ -14,12 +15,8 @@ for i in range(5):
     print(f"Image {i} shape: {X_train[i].shape}, Label: {y_train[i]}")
     print(f"Pixel range: [{X_train[i].min()}, {X_train[i].max()}]\n")
 
-print(f"Training data shape: {X_train.shape}")  # (60000, 28, 28)
-print(f"Test data shape: {X_test.shape}")       # (10000, 28, 28)
-print(f"Unique labels: {np.unique(y_train)}")   # 0-9 classes
 
 
-import matplotlib.pyplot as plt
 
 plt.figure(figsize=(10,2))
 for i in range(10):
