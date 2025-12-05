@@ -196,3 +196,37 @@ def build_efficient_cifar10_model():
     return model
 
 model = build_efficient_cifar10_model()
+
+# Quick compile
+model.compile(
+    optimizer=optimizers.Adam(learning_rate=0.001),
+    loss='categorical_crossentropy',
+    metrics=['accuracy']
+)
+
+model.summary()
+
+print("\n🔄 Creating simple augmentation...")
+from tensorflow.keras.preprocessing.image import ImageDataGenerator
+
+# Minimal augmentation for speed
+datagen = ImageDataGenerator(
+    horizontal_flip=True,
+    rotation_range=10,
+    width_shift_range=0.1,
+    height_shift_range=0.1,
+    zoom_range=0.1
+)
+
+# This is the part of Data Augmentation, and the concept here is that,
+# It will edit the images of each samples into slightly differnet version such as,
+# horizontal_flipping, a bit degree changing, zooming in or out, like that,
+# So, the image is that image, but become slightly differnet in terms of the structure and format.
+# Data Augmentation is largely needed, so that, the model can really understand what is that image, no matter  how many degrees or angles it is changed.
+# But take note that, yeah, it does not mean, it will crate new samples in x_train set, haha.
+# Instead, everytime the model is trained on x_train, every epochs is runned, datagen will create a slightly different version of a sample and will replace.
+# Lets say, if there are 10 epochs, it will be evolved 9 times. ( as the very first epoch is original epoch)
+
+datagen.fit(x_train)
+
+
